@@ -1,0 +1,278 @@
+/* background */
+.syntaxhighlighter {
+  background-color: #272822 !important;
+}
+.syntaxhighlighter .line.alt1 {
+  background-color: none !important;
+}
+.syntaxhighlighter .line.alt2 {
+  background-color: none !important;
+}
+
+/* sh styles */
+.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #3E3D32 !important;
+}
+.syntaxhighlighter .line.highlighted.number {
+  color: black !important;
+}
+.syntaxhighlighter table caption {
+  color: black !important;
+}
+.syntaxhighlighter .gutter {
+  color: #afafaf !important;
+}
+.syntaxhighlighter .gutter .line {
+  border-right: 3px solid #6ce26c !important;
+}
+.syntaxhighlighter .gutter .line.highlighted {
+  background-color: #3E3D32 !important;
+  color: white !important;
+}
+.syntaxhighlighter.printing .line .content {
+  border: none !important;
+}
+.syntaxhighlighter.collapsed {
+  overflow: visible !important;
+}
+.syntaxhighlighter.collapsed .toolbar {
+  color: blue !important;
+  background: white !important;
+  border: 1px solid #6ce26c !important;
+}
+.syntaxhighlighter.collapsed .toolbar a {
+  color: blue !important;
+}
+.syntaxhighlighter.collapsed .toolbar a:hover {
+  color: red !important;
+}
+.syntaxhighlighter .toolbar {
+  color: white !important;
+  background: #6ce26c !important;
+  border: none !important;
+}
+.syntaxhighlighter .toolbar a {
+  color: white !important;
+}
+.syntaxhighlighter .toolbar a:hover {
+  color: black !important;
+}
+
+
+/* common */
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
+  color: #F8F8F2 !important;
+}
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
+  color: #75715E !important;
+}
+.syntaxhighlighter .string, .syntaxhighlighter .string a {
+  color: #E6DB74 !important;
+}
+
+/* common predefined below */
+.syntaxhighlighter .keyword {
+  color: red !important;
+}
+.syntaxhighlighter .value {
+  color: red !important;
+}
+.syntaxhighlighter .variable {
+  color: red !important;
+}
+.syntaxhighlighter .preprocessor {
+  color: red !important;
+}
+.syntaxhighlighter .functions {
+  color: red !important;
+}
+.syntaxhighlighter .constants {
+  color: red !important;
+}
+.syntaxhighlighter .script {
+  color: red !important;
+}
+.syntaxhighlighter .color1, .syntaxhighlighter .color1 a {
+  color: red !important;
+}
+.syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
+  color: red !important;
+}
+.syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
+  color: red !important;
+}
+
+
+/* Monokai */
+/*
+  #F8F8F2 - white
+  #66D9EF - blue
+  #AE81FF - purple
+  #F92672 - red
+  #A6E22E - green
+  #FD971F - orange
+  #E6DB74 - yellow
+  #75715E - gray
+*/
+
+/* chrome vertical scrollbar bugfix */
+.syntaxhighlighter { overflow-y: hidden !important; }
+
+/* slight change to the font */
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  font-family: "Monospace", "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-size: 0.98em !important;
+  line-height: 1.2em !important;
+}
+.syntaxhighlighter .toolbar { display: none !important; }
+
+
+/* html */
+.html .keyword { /* tag name */
+  color: #F92672 !important;
+}
+.html .color1 { /* attribute name */
+  color: #A6E22E !important;
+}
+
+
+/* --- css --- */
+
+/* selectors */
+.css-selector-tag,
+.css-selector-container {
+  color: #F92672 !important;
+}
+.css-selector-class,
+.css-selector-id,
+.css-selector-pseudo-link,
+.css-selector-pseudo-element,
+.css-selector-pseudo-class,
+.css-selector-pseudo-ui-state,
+.css-selector-pseudo-digit {
+  color: #A6E22E !important;
+}
+
+/* properties */
+.css-property-name {
+  color: #66D9EF !important; font-style: italic !important;
+}
+.css-property-value {
+  color: #66D9EF !important;
+}
+.css-property-font {
+  color: #66D9EF !important;
+}
+.css-property-important {
+  color: #F92672 !important;
+}
+
+.css-hex,
+.css-digit {
+  color: #AE81FF !important;
+}
+.css-unit {
+  color: #F92672 !important;
+}
+
+/* match blocks */
+.css-property-url,
+.css-property-rgba,
+.css-selector-attribute {
+  color: #F8F8F2 !important;
+}
+.css-function-arguments {
+  color: #FD971F !important;
+}
+
+
+/* --- js --- */
+
+/* reserved keywords */
+.js-console {
+  color: #F8F8F2 !important;
+}
+.js-firebug {
+  color: #66D9EF !important;
+}
+.js-number {
+  color: #AE81FF !important;
+}
+.js .js-storage-type {
+  color: #66D9EF !important; font-style: italic !important;
+}
+.js-storage-modifier {
+  color: #F92672 !important;
+}
+.js-keyword-control {
+  color: #F92672 !important;
+}
+.js-keyword-operator {
+  color: #F92672 !important;
+}
+.js-true, 
+.js-false,
+.js-null,
+.js-language-constant {
+  color: #AE81FF !important;
+}
+.js-this {
+  color: #F8F8F2 !important;
+}
+.js-debugger {
+  color: #F92672 !important;
+}
+
+/* library */
+.js-support-class,
+.js-support-function,
+.js-support-function-dom {
+  color: #66D9EF !important;
+}
+.js .js-support-class {
+  font-style: italic !important;
+}
+.js-support-constant {
+  color: #66D9EF !important;
+}
+.js-support-constant-dom {
+  color: #F8F8F2 !important;
+}
+.js-event-handler {
+  color: #A6E22E !important;
+}
+
+/* punctuation */
+.js-terminator,
+.js-comma, 
+.js-period, 
+.js-brace-curly, 
+.js-brace-round, 
+.js-brace-square {
+  color: #F8F8F2 !important;
+}
+
+/* match blocks */
+.js-prototype1,
+.js-prototype2, 
+.js-function1, 
+.js-function2, 
+.js-function3, 
+.js-function4, 
+.js-json-function1, 
+.js-json-function2, 
+.js-instance-constructor {
+  color: #F8F8F2 !important;
+}
+.js .js-function-arguments {
+  color: #FD971F !important; font-style: italic !important;
+}

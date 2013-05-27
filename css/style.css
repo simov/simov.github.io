@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.eot');
+    src: url('../fonts/fontello.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fontello.woff') format('woff'),
+         url('../fonts/fontello.ttf') format('truetype'),
+         url('../fonts/fontello.svg#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.icon-note,
+.icon-info { font-family: 'fontello'; color: #969696; transition: .5s ease all; }
+.icon-note:before { content: '\266b'; } /* '♫' */
+.icon-info:before { content: '\e718'; } /* '' */
+.icon-note:hover,
+.icon-info:hover { color: #f8f8f2; }
+
+
+* { margin: 0; padding: 0; outline: 0; }
+
+html, body { width: 100%; height: 100%; overflow: hidden; cursor: default; }
+body { font-family: Arial, Helvetica, Sans-Serif; font-size: 16px; line-height: 16px; color: #f8f8f2; background: #000; }
+a { color: #f8f8f2; text-decoration: none; }
+
+
+#main { width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0; left: 0; z-index: 1; overflow: auto; }
+
+#header,
+#footer { width: 100%; position: fixed; left: 0; z-index: 2; text-align: right; }
+#header { top: 0; padding: 5px 0 0 0; }
+#footer { bottom: 0; padding: 0 0 5px 0; }
+
+#btn-music { font-size: 20px; line-height: 22px; display: none; margin: 0 20px 0 0; }
+#btn-info { font-size: 18px; line-height: 20px; margin: 0 20px 0 0; }
+
+#content { width: 820px; position: relative; z-index: 1; opacity: 0; margin: 0 auto; }
+#content .syntaxhighlighter { background: none !important; }
+#content .syntaxhighlighter a { color: #66d9ef !important; }
+#content .syntaxhighlighter a:hover { color: #ae81ff !important; }
+
+#soundcloud { position: absolute; top: 0; left: 0; z-index: 2; visibility: hidden; }
+
+.bt-content { font-size: 12px; line-height: 14px; }
+
+/*prefixes*/
+html, body, html *, body * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#content .syntaxhighlighter a
+{
+/*transition*/
+-webkit-transition:.2s ease all;
+   -moz-transition:.2s ease all;
+     -o-transition:.2s ease all;
+        transition:.2s ease all;
+}
+
+/*custom scrollbars in WebKit*/
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track-piece {
+    background: #333;
+    -webkit-border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background: #bbb;
+    -webkit-border-radius: 8px;
+    outline: 2px solid #333;
+    outline-offset: -2px;
+    border: 2px solid #333;
+}
+::-webkit-scrollbar-thumb:hover {
+    height: 50px;
+    background-color: #ddd;
+    -webkit-border-radius: 8px;
+}

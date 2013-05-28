@@ -1,14 +1,4 @@
 
-var webgl = (function () {
-    try {
-        return !! window.WebGLRenderingContext && 
-                !! document.createElement('canvas').getContext('experimental-webgl');
-    } catch (e) {
-        return false;
-    }
-})();
-
-
 (function(init, $) {
     $(function () {
         init.show();
@@ -45,7 +35,7 @@ var webgl = (function () {
 
                 var link = title.text()
                     .replace(/>(.*)<\//, '><a href="'+url+
-                            '" target="_blank" title="'+url+'" target="_blank">$1</a></');
+                            '" target="_blank" title="'+url+'">$1</a>&lt;/');
                 title.html(link);
 
                 $(this).replaceWith('&rarr;');
@@ -104,7 +94,8 @@ var webgl = (function () {
             $('.line .spaces').each(function (index) {
                 var text = $(this).text(),
                     count = text.match(/^(\s*)/g)[0].length;
-                $(this).text('').parent().css({'padding-left': count*8});
+                var indent = isMobile() ? 2 : 8;
+                $(this).text('').parent().css({'padding-left': count*indent});
             });
         }
     };

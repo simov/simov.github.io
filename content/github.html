@@ -11,13 +11,13 @@
     <article>
         <header>
             <h2>My place on the WWW! Oh man!</h2>
-            <p>I'm a fan of the W3C Standards, Open Source Software, Google Chrome and everything about the web. My technologies of choice are: HTML, CSS and Javascript mostly.</p>
+            <p>I'm a fan of W3C Standards, OSS, Chrome, JS, HTML, CSS and everything about the web.</p>
         </header>
 
-        <p>Accounts? Sure.</p>
 
         <nav id="accounts">
             <ul>
+                <li><a href="https://github.com/simov">github</a></li>
                 <li><a href="http://stackoverflow.com/users/1260020">stackoverflow</a></li>
                 <li><a href="https://coderbits.com/simov">coderbits</a></li>
                 <li><a href="http://osrc.dfm.io/simov">open source report card</a></li>
@@ -26,126 +26,43 @@
             </ul>
         </nav>
 
-        <p>And some of my projects and pull requests follow ...</p>
-    </article>
+
+        <dl>
+            <dt><a href="https://github.com/simov/express-admin">Express Admin</a></dt>
+            <dd>MySQL admin for NodeJS.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/simov/express-admin">Express Admin</a></h2>
-            <p>MySQL admin for NodeJS.</p>
-        </header>
-
-        <p>I was using Django to administrate a few MySQL databases back then and since I found NodeJS I thought it would be cool if I have my admins written in Javascript.</p>
-
-        <p>I didn't found any solution at that time and eventually I started up writing my own simple script.</p>
-
-        <p>My requirements were to write simple and maintainable solution.</p>
-
-        <p>The admin is build on top of w3c standard technologies and pure expressjs routing logic.</p>
-    </article>
+            <dt><a href="https://github.com/simov/styler">Styler</a></dt>
+            <dd>Chrome styling extension.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/simov/styler">Styler</a></h2>
-            <p>Chrome styling extension.</p>
-        </header>
-
-        <p>I was looking for an easy way to reload my pages on file changed while I'm developing styles for injection into web sites (like the monokai theme for <a href="https://gist.github.com/simov/3716262">GitHub's code view</a>). And while there are plenty of chrome extensions for injecting styles into pages I didn't found one that allow me to auto refresh my pages while developing them in Sublime Text.</p>
-
-        <p>Anyway I was somewhat familiar with chrome's extension development basics and I was pretty sure that I can hook up the os specific logic pretty easy using nodejs and web sockets.</p>
-    </article>
+            <dt><a href="https://github.com/simov/recursive-fs">recursive-fs</a></dt>
+            <dd>Asynchronous recursive file system operations.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/simov/recursive-fs">recursive-fs</a></h2>
-            <p>Asynchronous recursive file system operations.</p>
-        </header>
-
-        <p>The only place where the recursion occur is in the <a href="https://github.com/simov/recursive-fs/blob/master/lib/readdirr.js">read</a> module and I use an array's length to determine the bottom of the recursion. That's all.</p>
-
-        <p>There are some additional modules in the <em>lib</em> folder as well. They all rely on the <em>read</em> module.</p>
-    </article>
+            <dt><a href="http://simov.github.com/sr-json/test/">sr-json</a></dt>
+            <dd>JSON - parser, render and serializer.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="http://simov.github.com/sr-json/test/">sr-json</a></h2>
-            <p>JSON - parser, render and serializer.</p>
-        </header>
-
-        <p>I needed an html editor for json.</p>
-
-        <p>So I figured out how the json object and the template should be looking to make a <a href="http://stackoverflow.com/questions/13408425/mustache-js-recursion/14966434#14966434">recursion in mustache</a>.</p>
-
-        <p>The next thing was to actually generate those <a href="https://github.com/simov/sr-json/blob/master/lib/sr-json.js#L22">template parameters</a>.</p>
-
-        <p>Lastly I <a href="https://github.com/simov/sr-json/blob/master/lib/sr-json.js#L97">serialized</a> the html structure back to a valid json.</p>
-    </article>
+            <dt><a href="https://github.com/simov/deep-copy">deep-copy</a></dt>
+            <dd>Deep copy any object or array.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/simov/deep-copy">deep-copy</a></h2>
-            <p>Deep copy any object or array.</p>
-        </header>
-
-        <p>This one I wrote after the <em>sr-json</em> module. They are very similar.</p>
-
-        <p>I needed only a deep copy for one of my projects, not an entire library with lots of other stuff that I won't use. The code ended up being pretty <a href="https://github.com/simov/deep-copy/blob/master/lib/dcopy.js#L21">neat</a>.</p>
-    </article>
+            <dt><a href="https://github.com/simov/mysql-validator">mysql-validator</a></dt>
+            <dd>Validates web forms input against mysql database.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/simov/mysql-validator">mysql-validator</a></h2>
-            <p>Validates web forms input against mysql database.</p>
-        </header>
-
-        <p>There are lots of tests for this module, you should definitely run them to get my point with this one.</p>
-    </article>
+            <dt><a href="http://simov.github.com/simplr-fade/">simplr-fade</a></dt>
+            <dd>jQurey slide show plugin.</dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="http://simov.github.com/simplr-fade/">simplr-fade</a></h2>
-            <p>jQurey slide show plugin.</p>
-        </header>
-
-        <p>I wrote this one a long time ago. It's very simple although I really like the demo page for the plugin.</p>
-    </article>
+            <dt><a href="https://github.com/senchalabs/connect/pull/734">Directory middleware improvements</a></dt>
+            <dd></dd>
 
 
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/senchalabs/connect/pull/734">Directory middleware improvements</a></h2>
-        </header>
-
-        <p>I needed an easy way to navigate the files on my server while browsing on my mobile phone.</p>
-
-        <p>I also added some other improvements like dynamic icon size and details view. Although the pull request isn't merged in it contains some usefull things inside.</p>
-    </article>
-
-
-
-    <article>
-        <header>
-            <h2><a href="https://github.com/visionmedia/consolidate.js/pull/51">Partials support in consolidate.js</a></h2>
-        </header>
-
-        <p>Really simple solution with some drawbacks as well. The partial paths are relative to their parent template and the partials object is modified after the first render.</p>
-
-        <p>But it took really long time to be approved by TJ and then lots of people use this solution so I guess it's worth the tradeoffs.</p>
+            <dt><a href="https://github.com/visionmedia/consolidate.js/pull/51">Partials support in consolidate.js</a></dt>
+            <dd></dd>
+        </dl>
     </article>
 
 

@@ -1,22 +1,37 @@
 
 (function(init, $) {
     $(function () {
-        init.show();
+        init.repositories();
         init.iframe();
-        init.links();
         init.buttons();
-        init.tooltips();
-        init.spaces();
+        init.btnTooltip();
     });
 }(
 (function init ($) {
     return {
+        repositories: function () {
+            var self = this;
+            $.ajax({
+                type: 'GET',
+                url: 'http://simov.outofindex.com',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.status == 'success')
+                        $('#content').append(res.body)
+                    self.links();
+                    self.linkTooltips();
+                    self.spaces();
+                    self.show();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR, textStatus, errorThrown);
+                }
+            });
+        },
         show: function () {
-            window.setTimeout(function () {
-                $('#content').animate({opacity: 1}, 5000, function () {
-                    
-                });
-            }, 2000);
+            $('#content').animate({opacity: 1}, 5000, function () {
+                
+            });
         },
         iframe: function () {
             var soundcloud = $('#soundcloud').iframe({
@@ -52,7 +67,7 @@
                 return false;
             });
         },
-        tooltips: function () {
+        btnTooltip: function () {
             $('#btn-info').bt({
                 positions: ['top', 'most'],
                 padding: 5,
@@ -70,7 +85,8 @@
                     $(box).animate({opacity: 0}, 500, callback);
                 }
             });
-
+        },
+        linkTooltips: function () {
             $('#content .syntaxhighlighter a').bt({
                 positions: ['top', 'most'],
                 padding: 5,

@@ -1,37 +1,15 @@
 <?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>
-Created by FontForge 20100429 at Fri Mar 29 23:02:51 2013
- By root
-Copyright (C) 2012 by original authors @ fontello.com
-</metadata>
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
 <defs>
-<font id="fontello" horiz-adv-x="364" >
-  <font-face 
-    font-family="fontello"
-    font-weight="500"
-    font-stretch="normal"
-    units-per-em="1000"
-    panose-1="2 0 6 3 0 0 0 0 0 0"
-    ascent="850"
-    descent="-150"
-    bbox="15 -127.26 815 830"
-    underline-thickness="50"
-    underline-position="-100"
-    unicode-range="U+266B-E718"
-  />
-<missing-glyph 
-d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
-    <glyph glyph-name=".notdef" 
-d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
-    <glyph glyph-name=".null" horiz-adv-x="0" 
- />
-    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="333" 
- />
-    <glyph glyph-name="musicalnotedbl" unicode="&#x266b;" horiz-adv-x="770" 
-d="M221 714l534 116v-704q2 -48 -33 -85t-83 -55q-63 -23 -109 -8t-63 64q-18 48 7 97q22 43 76 68.5t115 14.5v376l-354 -82v-490q0 -48 -35 -85t-83 -55q-63 -22 -108.5 -7.5t-61.5 63.5q-18 48 6 97q21 44 75.5 69.5t116.5 13.5v592z" />
-    <glyph glyph-name="uniE718" unicode="&#xe718;" horiz-adv-x="830" 
-d="M715 700q42 0 71 -29t29 -71v-350q0 -41 -29.5 -70.5t-70.5 -29.5h-200v-150l-200 150h-200q-40 0 -70 30t-30 70v350q0 41 29.5 70.5t70.5 29.5h600z" />
-  </font>
-</defs></svg>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="star" unicode="&#xe801;" d="m929 489q0-12-15-27l-203-197l48-279q1-4 1-12q0-11-6-19t-17-9q-10 0-22 7l-251 132l-250-132q-13-7-23-7q-11 0-17 9t-6 19q0 4 1 12l48 279l-203 197q-14 15-14 27q0 21 31 26l280 40l126 254q11 23 27 23t28-23l125-254l280-40q32-5 32-26z" horiz-adv-x="928.6" />
+<glyph glyph-name="fork" unicode="&#xe800;" d="m161 29q0 22-16 38t-38 15t-38-15t-15-38t15-38t38-16t38 16t16 38z m0 642q0 23-16 38t-38 16t-38-16t-15-38t15-38t38-15t38 15t16 38z m357-71q0 22-16 38t-38 16t-38-16t-15-38t15-38t38-16t38 16t16 38z m53 0q0-29-14-54t-39-39q-1-160-126-231q-38-21-114-45q-71-22-94-39t-23-56v-15q24-14 39-39t14-53q0-45-31-76t-76-32t-76 32t-31 76q0 29 15 53t39 39v458q-25 14-39 39t-15 53q0 45 31 76t76 32t76-32t31-76q0-29-14-53t-39-39v-278q30 15 86 32q30 10 49 17t39 17t33 22t22 29t16 38t5 51q-25 14-39 39t-15 54q0 45 31 76t76 31t76-31t31-76z" horiz-adv-x="571.4" />
+<glyph glyph-name="comment" unicode="&#xe802;" d="m700 700q42 0 71-29t29-71l0-350q0-40-29-70t-71-30l-200 0l0-150l-200 150l-200 0q-40 0-70 30t-30 70l0 350q0 42 30 71t70 29l600 0z" horiz-adv-x="800" />
+<glyph glyph-name="soundcloud" unicode="&#xe803;" d="m34 178q0-4-10-4q-6 0-10 4l-14 70l14 72q4 4 10 4q10 0 10-4l16-72z m102-38q0-8-12-8t-12 8l-12 108l12 166q0 8 12 8t12-8l14-166z m102 2q0-10-14-10t-14 8l-10 108l10 222q0 10 14 10t14-10l12-222z m102 0q0-10-16-10t-16 10l-8 106l8 224q0 10 16 10t16-10l10-224z m102 2q0-12-18-12q-16 0-18 12l-6 104l6 256q4 14 18 14q18 0 18-14l8-256z m72-12q-14 0-14 14l0 396q0 10 12 14q36 14 84 14q88 0 153-58t73-142q24 10 50 10q52 0 90-37t38-87q0-52-38-89t-90-37z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

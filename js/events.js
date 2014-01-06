@@ -14,6 +14,7 @@
             $.ajax({
                 type: 'GET',
                 url: 'http://simov.outofindex.com',
+                // url: 'http://localhost:3012',
                 dataType: 'json',
                 success: function (res) {
                     if (res.status == 'success')
@@ -21,6 +22,7 @@
                     self.links();
                     self.linkTooltips();
                     self.spaces();
+                    self.icons();
                     self.show();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -89,12 +91,12 @@
         linkTooltips: function () {
             $('#content .syntaxhighlighter a').bt({
                 positions: ['top', 'most'],
-                padding: 5,
+                padding: 10,
                 width: 'auto',
                 spikeLength: 5,
                 fill: 'rgba(85, 85, 85)',
-                strokeStyle: '#f8f8f2',
-                cssStyles: {color: '#f8f8f2', 'white-space': 'nowrap'},
+                strokeStyle: '#a6e22e',
+                cssStyles: {color: '#a6e22e', 'white-space': 'nowrap', 'font-size': 16},
                 hoverIntentOpts: {
                     timeout: 0
                 },
@@ -112,6 +114,17 @@
                     count = text.match(/^(\s*)/g)[0].length;
                 var indent = isMobile() ? 2 : 8;
                 $(this).text('').parent().css({'padding-left': count*indent});
+            });
+        },
+        icons: function () {
+            $('.line .plain').each(function (index) {
+                var text = $(this).text(),
+                    match = text.match(/^>\+\d+ ~\d+<\/$/);
+                if (!match) return;
+                $(this).html(text
+                    .replace('+', '<i class="icon-star"></i>')
+                    .replace('~', '<i class="icon-fork"></i>')
+                );
             });
         }
     };

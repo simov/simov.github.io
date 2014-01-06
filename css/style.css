@@ -8,20 +8,31 @@
     font-weight: normal;
     font-style: normal;
 }
-.icon-note,
-.icon-info { font-family: 'fontello'; color: #969696; transition: .5s ease all; }
-.icon-note:before { content: '\266b'; } /* '♫' */
-.icon-info:before { content: '\e718'; } /* '' */
-.icon-note:hover,
-.icon-info:hover { color: #f8f8f2; }
+
+
+.icon-soundcloud,
+.icon-comment { font-family: 'fontello'; color: #969696; transition: .5s ease all; }
+
+.icon-soundcloud:before { content: '\e803'; }
+.icon-comment:before { content: '\e802'; }
+
+.icon-soundcloud:hover,
+.icon-comment:hover { color: #f8f8f2; }
+
+.icon-star { color: #E6DB74; }
+.icon-fork { color: #66d9ef; }
+.icon-star,
+.icon-fork { font-family: 'fontello'; }
+.icon-star:before { content: '\e801'; }
+.icon-fork:before { content: '\e800'; }
 
 
 * { margin: 0; padding: 0; outline: 0; }
 
 html, body { width: 100%; height: 100%; overflow: hidden; cursor: default; }
-body { font-family: Arial, Helvetica, Sans-Serif; font-size: 16px; line-height: 16px; color: #f8f8f2; background: #000; }
+body { font-family: Arial, Helvetica, Sans-Serif; font-size: 20px; line-height: 23px; color: #f8f8f2; background: #000; }
 a { color: #f8f8f2; text-decoration: none; }
-
+i { font-style: normal; }
 
 #main { width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); position: absolute; top: 0; left: 0; z-index: 1; overflow: auto; }
 

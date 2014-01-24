@@ -49,6 +49,7 @@
             $('.syntaxhighlighter a').each(function (index) {
                 var url = $(this).attr('href'),
                     title = $(this).parent().next();
+                if (url.indexOf('npmjs')!=-1) url += '~simov';
 
                 var link = title.text()
                     .replace(/>(.*)<\//, '><a href="'+url+

@@ -14,7 +14,6 @@
             $.ajax({
                 type: 'GET',
                 url: 'http://simov.herokuapp.com',
-                // url: 'http://localhost:3012',
                 // url: 'http://code:5000',
                 dataType: 'json',
                 success: function (res) {

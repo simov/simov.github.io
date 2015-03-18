@@ -9,22 +9,26 @@
   font-style: normal;
 }
 
-
+.icon-comment,
+.icon-star,
+.icon-fork,
 .icon-soundcloud,
-.icon-comment { font-family: 'fontello'; color: #969696; transition: .5s ease all; }
+.icon-user { font-family: 'fontello'; }
 
+.icon-comment:before { content: '\e800'; }
+.icon-star:before { content: '\e801'; }
+.icon-fork:before { content: '\e802'; }
 .icon-soundcloud:before { content: '\e803'; }
-.icon-comment:before { content: '\e802'; }
+.icon-user:before { content: '\e804'; }
 
+.icon-comment,
+.icon-soundcloud { color: #969696; transition: .5s ease all; }
 .icon-soundcloud:hover,
 .icon-comment:hover { color: #f8f8f2; }
 
 .icon-star { color: #E6DB74; }
 .icon-fork { color: #66d9ef; }
-.icon-star,
-.icon-fork { font-family: 'fontello'; }
-.icon-star:before { content: '\e801'; }
-.icon-fork:before { content: '\e800'; }
+.icon-user { color: #E6DB74; font-size: 16px; position: relative; top: -1px; }
 
 
 * { margin: 0; padding: 0; outline: 0; }

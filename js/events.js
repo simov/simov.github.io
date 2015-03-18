@@ -14,7 +14,7 @@
       $.ajax({
         type: 'GET',
         url: 'http://simov.herokuapp.com',
-        // url: 'http://code:5000',
+        // url: 'http://ssd:5000',
         dataType: 'json',
         success: function (res) {
           if (res.status == 'success')
@@ -121,14 +121,25 @@
     },
     icons: function () {
       $('.line .plain').each(function (index) {
-        var text = $(this).text(),
-          match = text.match(/^>\+\d+ ~\d+<\/$/);
-        if (!match) return;
-        $(this).html(text
-          .replace('+', '<i class="icon-star"></i>')
-          .replace('~', '<i class="icon-fork"></i>')
-        );
-      });
+        var text = $(this).text()
+          , match = text.match(/^>\+\d+ ~\d+<\/$/)
+
+        if (match) {
+          $(this).html(text
+            .replace('+', '<i class="icon-star"></i>')
+            .replace('~', '<i class="icon-fork"></i>')
+          )
+        }
+
+        match = text.match(/^>\*\d+<\/$/)
+
+        if (match) {
+          $(this).html(text
+            .replace('*', '<i class="icon-user"></i>')
+          )
+        }
+        
+      })
     }
   };
 }(jQuery)), jQuery));

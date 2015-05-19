@@ -14,7 +14,6 @@
       $.ajax({
         type: 'GET',
         url: 'http://simov.herokuapp.com',
-        // url: 'http://ssd:5000',
         dataType: 'json',
         success: function (res) {
           if (res.status == 'success')

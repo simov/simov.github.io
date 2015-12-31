@@ -1,5 +1,5 @@
 
-#[My place on the WWW! Oh man!][1]
+# [My place on the WWW! Oh man!][simov]
 
 
-  [1]: http://simov.github.io
+  [simov]: http://simov.github.io

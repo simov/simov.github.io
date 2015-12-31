@@ -31,7 +31,7 @@
     },
     show: function () {
       $('#content').animate({opacity: 1}, 5000, function () {
-        
+
       });
     },
     iframe: function () {
@@ -50,7 +50,7 @@
           title = $(this).parent().next();
         if (url.indexOf('npmjs')!=-1) url += '~simov';
         if (url.indexOf('plus')!=-1) url += '+SimeonVelichkov';
-        if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+author%3Asimov+repo%3Arequest%2Frequest+';
+        if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+is%3Amerged+author%3Asimov';
 
         var link = title.text()
           .replace(/>(.*)<\//, '><a href="'+url+
@@ -137,7 +137,7 @@
             .replace('*', '<i class="icon-user"></i>')
           )
         }
-        
+
       })
     }
   };

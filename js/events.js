@@ -1,16 +1,16 @@
 
-(function(init, $) {
+;(function(init, $) {
   $(function () {
-    init.repositories();
-    init.iframe();
-    init.buttons();
-    init.btnTooltip();
-  });
+    init.repositories()
+    init.iframe()
+    init.buttons()
+    init.btnTooltip()
+  })
 }(
 (function init ($) {
   return {
     repositories: function () {
-      var self = this;
+      var self = this
       $.ajax({
         type: 'GET',
         url: 'http://simov.herokuapp.com',
@@ -18,58 +18,58 @@
         success: function (res) {
           if (res.status == 'success')
             $('#content').append(res.body)
-          self.links();
-          self.linkTooltips();
-          self.spaces();
-          self.icons();
-          self.show();
+          self.links()
+          self.linkTooltips()
+          self.spaces()
+          self.icons()
+          self.show()
         },
         error: function (jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR, textStatus, errorThrown);
+          console.log(jqXHR, textStatus, errorThrown)
         }
-      });
+      })
     },
     show: function () {
       $('#content').animate({opacity: 1}, 5000, function () {
 
-      });
+      })
     },
     iframe: function () {
       var soundcloud = $('#soundcloud').iframe({
         onload: function (e) {
           window.setTimeout(function () {
-            $('#soundcloud').css({display: 'none', visibility: 'visible'});
-            $('#btn-music').fadeIn();
-          }, 2000);
+            $('#soundcloud').css({display: 'none', visibility: 'visible'})
+            $('#btn-music').fadeIn()
+          }, 2000)
         }
-      });
+      })
     },
     links: function () {
       $('.syntaxhighlighter a').each(function (index) {
         var url = $(this).attr('href'),
-          title = $(this).parent().next();
-        if (url.indexOf('npmjs')!=-1) url += '~simov';
-        if (url.indexOf('plus')!=-1) url += '+SimeonVelichkov';
-        if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+is%3Amerged+author%3Asimov';
+          title = $(this).parent().next()
+        if (url.indexOf('npmjs')!=-1) url += '~simov'
+        if (url.indexOf('plus')!=-1) url += '+SimeonVelichkov'
+        if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+is%3Amerged+author%3Asimov'
 
         var link = title.text()
           .replace(/>(.*)<\//, '><a href="'+url+
-              '" target="_blank" title="'+url+'">$1</a>&lt;/');
-        title.html(link);
+              '" target="_blank" title="'+url+'">$1</a>&lt;/')
+        title.html(link)
 
-        $(this).replaceWith('&rarr;');
-      });
+        $(this).replaceWith('&rarr;')
+      })
     },
     buttons: function () {
       $('#btn-music').on('mouseover', function (e) {
-        $('#soundcloud').fadeIn();
-      });
+        $('#soundcloud').fadeIn()
+      })
       $('#soundcloud').on('mouseout', function (e) {
-        $('#soundcloud').fadeOut();
-      });
+        $('#soundcloud').fadeOut()
+      })
       $('#btn-music, #btn-info').on('click', function (e) {
-        return false;
-      });
+        return false
+      })
     },
     btnTooltip: function () {
       $('#btn-info').bt({
@@ -82,13 +82,13 @@
         hoverIntentOpts: {
           timeout: 1000
         },
-        showTip: function(box){
-          $(box).fadeIn(500);
+        showTip: function (box) {
+          $(box).fadeIn(500)
         },
-        hideTip: function(box, callback){
-          $(box).animate({opacity: 0}, 500, callback);
+        hideTip: function (box, callback) {
+          $(box).animate({opacity: 0}, 500, callback)
         }
-      });
+      })
     },
     linkTooltips: function () {
       $('#content .syntaxhighlighter a').bt({
@@ -102,21 +102,21 @@
         hoverIntentOpts: {
           timeout: 0
         },
-        showTip: function(box){
-          $(box).fadeIn(200);
+        showTip: function (box) {
+          $(box).fadeIn(200)
         },
-        hideTip: function(box, callback){
-          $(box).animate({opacity: 0}, 200, callback);
+        hideTip: function (box, callback) {
+          $(box).animate({opacity: 0}, 200, callback)
         }
-      });
+      })
     },
     spaces: function () {
       $('.line .spaces').each(function (index) {
         var text = $(this).text(),
-          count = text.match(/^(\s*)/g)[0].length;
-        var indent = isMobile() ? 2 : 8;
-        $(this).text('').parent().css({'padding-left': count*indent});
-      });
+          count = text.match(/^(\s*)/g)[0].length
+        var indent = isMobile() ? 2 : 8
+        $(this).text('').parent().css({'padding-left': count*indent})
+      })
     },
     icons: function () {
       $('.line .plain').each(function (index) {
@@ -140,5 +140,5 @@
 
       })
     }
-  };
+  }
 }(jQuery)), jQuery));

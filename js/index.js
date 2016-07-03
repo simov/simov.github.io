@@ -16,8 +16,9 @@
         url: 'http://simov.herokuapp.com',
         dataType: 'json',
         success: function (res) {
-          if (res.status == 'success')
+          if (res.status == 'success') {
             $('#content').append(res.body)
+          }
           self.links()
           self.linkTooltips()
           self.spaces()
@@ -46,15 +47,15 @@
     },
     links: function () {
       $('.syntaxhighlighter a').each(function (index) {
-        var url = $(this).attr('href'),
-          title = $(this).parent().next()
+        var url = $(this).attr('href')
+        var title = $(this).parent().next()
         if (url.indexOf('npmjs')!=-1) url += '~simov'
         if (url.indexOf('plus')!=-1) url += '+SimeonVelichkov'
         if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+is%3Amerged+author%3Asimov'
 
         var link = title.text()
-          .replace(/>(.*)<\//, '><a href="'+url+
-              '" target="_blank" title="'+url+'">$1</a>&lt;/')
+          .replace(/>(.*)<\//, '><a href="' + url +
+          '" target="_blank" title="' + url + '">$1</a>&lt;/')
         title.html(link)
 
         $(this).replaceWith('&rarr;')
@@ -79,9 +80,7 @@
         spikeLength: 10,
         fill: 'rgba(117, 113, 94, .5)',
         cssStyles: {color: '#f8f8f2', 'white-space': 'nowrap'},
-        hoverIntentOpts: {
-          timeout: 1000
-        },
+        hoverIntentOpts: {timeout: 1000},
         showTip: function (box) {
           $(box).fadeIn(500)
         },
@@ -99,9 +98,7 @@
         fill: 'rgba(85, 85, 85)',
         strokeStyle: '#a6e22e',
         cssStyles: {color: '#a6e22e', 'white-space': 'nowrap', 'font-size': 16},
-        hoverIntentOpts: {
-          timeout: 0
-        },
+        hoverIntentOpts: {timeout: 0},
         showTip: function (box) {
           $(box).fadeIn(200)
         },
@@ -112,8 +109,8 @@
     },
     spaces: function () {
       $('.line .spaces').each(function (index) {
-        var text = $(this).text(),
-          count = text.match(/^(\s*)/g)[0].length
+        var text = $(this).text()
+        var count = text.match(/^(\s*)/g)[0].length
         var indent = isMobile() ? 2 : 8
         $(this).text('').parent().css({'padding-left': count*indent})
       })
@@ -121,7 +118,7 @@
     icons: function () {
       $('.line .plain').each(function (index) {
         var text = $(this).text()
-          , match = text.match(/^>\+\d+ ~\d+<\/$/)
+        var match = text.match(/^>\+\d+ ~\d+<\/$/)
 
         if (match) {
           $(this).html(text
@@ -133,9 +130,7 @@
         match = text.match(/^>\*\d+<\/$/)
 
         if (match) {
-          $(this).html(text
-            .replace('*', '<i class="icon-user"></i>')
-          )
+          $(this).html(text.replace('*', '<i class="icon-user"></i>'))
         }
 
       })

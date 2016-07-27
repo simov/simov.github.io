@@ -13,7 +13,7 @@
       var self = this
       $.ajax({
         type: 'GET',
-        url: 'http://simov.herokuapp.com',
+        url: 'http://simov.outofindex.com',
         dataType: 'json',
         success: function (res) {
           if (res.status == 'success') {

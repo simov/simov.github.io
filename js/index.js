@@ -1,5 +1,5 @@
 
-;(function(init, $) {
+;(function (init, $) {
   $(function () {
     init.repositories()
     init.iframe()
@@ -13,12 +13,10 @@
       var self = this
       $.ajax({
         type: 'GET',
-        url: 'http://simov.outofindex.com',
-        dataType: 'json',
-        success: function (res) {
-          if (res.status == 'success') {
-            $('#content').append(res.body)
-          }
+        url: 'https://outofindex.com/simov/',
+        dataType: 'text',
+        success: function (body) {
+          $('#content').append(body)
           self.links()
           self.linkTooltips()
           self.spaces()

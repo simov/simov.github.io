@@ -1,4 +1,8 @@
 
+if (window.location.protocol === 'http:') {
+  window.location.href = 'https://simov.github.io'
+}
+
 ;(function (init, $) {
   $(function () {
     init.repositories()

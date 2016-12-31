@@ -1,141 +1,173 @@
 
+var production = true
+
 if (window.location.protocol === 'http:') {
   window.location.href = 'https://simov.github.io'
 }
 
-;(function (init, $) {
-  $(function () {
-    init.repositories()
-    init.iframe()
-    init.buttons()
-    init.btnTooltip()
+function mobile () {
+  return /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i
+    .test(navigator.userAgent.toLowerCase())
+}
+
+function file (path, done) {
+  var xhr = new XMLHttpRequest()
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      done(null, xhr.responseText)
+    }
+  }
+
+  xhr.open('GET', path, true)
+
+  try {
+    xhr.send()
+  }
+  catch (err) {
+    done(err)
+  }
+}
+
+function loadScript (url, done) {
+  // http://www.nczonline.net/blog/2009/06/23/loading-javascript-without-blocking/
+  var script = document.createElement('script')
+  script.type = 'text/javascript'
+
+  if (script.readyState) { // IE
+    script.onreadystatechange = function () {
+      if (script.readyState == 'loaded' || script.readyState == 'complete') {
+        script.onreadystatechange = null
+        done()
+      }
+    }
+  }
+  else { // Others
+    script.onload = function () {
+      done()
+    }
+  }
+
+  script.src = url
+  document.body.appendChild(script)
+}
+
+
+window.addEventListener('DOMContentLoaded', function () {
+  file('https://outofindex.com/simov/', function (err, body) {
+    document.querySelector('#content').innerHTML = body
+    content.links()
+    content.icons()
+    // content.tooltips()
+    // content.spaces()
+    document.querySelector('#content').style.opacity = 1
   })
-}(
-(function init ($) {
-  return {
-    repositories: function () {
-      var self = this
-      $.ajax({
-        type: 'GET',
-        url: 'https://outofindex.com/simov/',
-        dataType: 'text',
-        success: function (body) {
-          $('#content').append(body)
-          self.links()
-          self.linkTooltips()
-          self.spaces()
-          self.icons()
-          self.show()
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR, textStatus, errorThrown)
-        }
-      })
-    },
-    show: function () {
-      $('#content').animate({opacity: 1}, 5000, function () {
 
-      })
-    },
-    iframe: function () {
-      var soundcloud = $('#soundcloud').iframe({
-        onload: function (e) {
-          window.setTimeout(function () {
-            $('#soundcloud').css({display: 'none', visibility: 'visible'})
-            $('#btn-music').fadeIn()
-          }, 2000)
-        }
-      })
-    },
-    links: function () {
-      $('.syntaxhighlighter a').each(function (index) {
-        var url = $(this).attr('href')
-        var title = $(this).parent().next()
-        if (url.indexOf('npmjs')!=-1) url += '~simov'
-        if (url.indexOf('plus')!=-1) url += '+SimeonVelichkov'
-        if (url.indexOf('/pulls?q=')!=-1) url += 'is%3Apr+is%3Amerged+author%3Asimov'
+  if (!mobile()) {
+    var path = production
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r45/Three.js'
+      // curl -O https://raw.githubusercontent.com/mrdoob/three.js/r45/build/Three.js
+      : '/Three.js'
 
-        var link = title.text()
-          .replace(/>(.*)<\//, '><a href="' + url +
-          '" target="_blank" title="' + url + '">$1</a>&lt;/')
-        title.html(link)
+    loadScript(path, function () {
+      AttractorsTrip()
+      soundcloud()
+    })
+  }
+})
 
-        $(this).replaceWith('&rarr;')
-      })
-    },
-    buttons: function () {
-      $('#btn-music').on('mouseover', function (e) {
-        $('#soundcloud').fadeIn()
-      })
-      $('#soundcloud').on('mouseout', function (e) {
-        $('#soundcloud').fadeOut()
-      })
-      $('#btn-music, #btn-info').on('click', function (e) {
-        return false
-      })
-    },
-    btnTooltip: function () {
-      $('#btn-info').bt({
-        positions: ['top', 'most'],
-        padding: 5,
-        width: 'auto',
-        spikeLength: 10,
-        fill: 'rgba(117, 113, 94, .5)',
-        cssStyles: {color: '#f8f8f2', 'white-space': 'nowrap'},
-        hoverIntentOpts: {timeout: 1000},
-        showTip: function (box) {
-          $(box).fadeIn(500)
-        },
-        hideTip: function (box, callback) {
-          $(box).animate({opacity: 0}, 500, callback)
+
+var content = {
+  links: function () {
+    Array.from(document.querySelectorAll('.syntaxhighlighter a'))
+      .forEach(function (link) {
+        var url = link.getAttribute('href')
+        if (url.indexOf('npmjs') !== -1) {
+          url += '~simov'
         }
-      })
-    },
-    linkTooltips: function () {
-      $('#content .syntaxhighlighter a').bt({
-        positions: ['top', 'most'],
-        padding: 10,
-        width: 'auto',
-        spikeLength: 5,
-        fill: 'rgba(85, 85, 85)',
-        strokeStyle: '#a6e22e',
-        cssStyles: {color: '#a6e22e', 'white-space': 'nowrap', 'font-size': 16},
-        hoverIntentOpts: {timeout: 0},
-        showTip: function (box) {
-          $(box).fadeIn(200)
-        },
-        hideTip: function (box, callback) {
-          $(box).animate({opacity: 0}, 200, callback)
+        else if (url.indexOf('plus') !== -1) {
+          url += '+SimeonVelichkov'
         }
+        else if (url.indexOf('/pulls?q=') !== -1) {
+          url += 'is%3Apr+is%3Amerged+author%3Asimov'
+        }
+
+        var text = link.parentNode.nextSibling.innerText
+
+        link.parentNode.nextSibling.innerHTML = text.replace(/>(.*)<\//,
+          '><a href="' + url + '" target="_blank" title="' + url + '">$1</a>&lt;/')
+
+        link.parentNode.innerHTML = '"&rarr;"'
       })
-    },
-    spaces: function () {
-      $('.line .spaces').each(function (index) {
-        var text = $(this).text()
-        var count = text.match(/^(\s*)/g)[0].length
-        var indent = isMobile() ? 2 : 8
-        $(this).text('').parent().css({'padding-left': count*indent})
-      })
-    },
-    icons: function () {
-      $('.line .plain').each(function (index) {
-        var text = $(this).text()
+  },
+  icons: function () {
+    Array.from(document.querySelectorAll('.line .plain'))
+      .forEach(function (elem) {
+        var text = elem.innerText
         var match = text.match(/^>\+\d+ ~\d+<\/$/)
 
         if (match) {
-          $(this).html(text
+          elem.innerHTML = text
             .replace('+', '<i class="icon-star"></i>')
             .replace('~', '<i class="icon-fork"></i>')
-          )
         }
 
         match = text.match(/^>\*\d+<\/$/)
 
         if (match) {
-          $(this).html(text.replace('*', '<i class="icon-user"></i>'))
+          elem.innerHTML = text.replace('*', '<i class="icon-user"></i>')
         }
-
       })
-    }
-  }
-}(jQuery)), jQuery));
+  },
+  linkTooltips: function () {
+    // .bt-content { font-size: 12px; line-height: 14px; }
+    $('#content .syntaxhighlighter a').bt({
+      positions: ['top', 'most'],
+      padding: 10,
+      width: 'auto',
+      spikeLength: 5,
+      fill: 'rgba(85, 85, 85)',
+      strokeStyle: '#a6e22e',
+      cssStyles: {color: '#a6e22e', 'white-space': 'nowrap', 'font-size': 16},
+      hoverIntentOpts: {timeout: 0},
+      showTip: function (box) {
+        $(box).fadeIn(200)
+      },
+      hideTip: function (box, callback) {
+        $(box).animate({opacity: 0}, 200, callback)
+      }
+    })
+  },
+  spaces: function () {
+    $('.line .spaces').each(function (index) {
+      var text = $(this).text()
+      var count = text.match(/^(\s*)/g)[0].length
+      var indent = mobile() ? 2 : 8
+      $(this).text('').parent().css({'padding-left': count*indent})
+    })
+  },
+}
+
+function soundcloud () {
+  var btn = document.querySelector('.icon-soundcloud')
+  var iframe = document.querySelector('#soundcloud')
+
+  iframe.addEventListener('load', function () {
+    btn.style.opacity = 1
+  })
+
+  btn.addEventListener('mouseover', function () {
+    iframe.style.opacity = 1
+  })
+
+  iframe.addEventListener('mouseout', function () {
+    iframe.style.opacity = 0
+  })
+
+  iframe.src = 'https://w.soundcloud.com/player/?' + [
+    'url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F4403562',
+    'color=040403',
+    'auto_play=true',
+    'show_artwork=true'
+  ].join('&amp;')
+}

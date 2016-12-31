@@ -1,9 +1,32 @@
 
-var production = true
-
 if (window.location.protocol === 'http:') {
   window.location.href = 'https://simov.github.io'
 }
+
+var production = true
+
+window.addEventListener('DOMContentLoaded', function () {
+  file('https://outofindex.com/simov/', function (err, body) {
+    document.querySelector('#content').innerHTML = body
+    content.links()
+    content.icons()
+    // content.tooltips()
+    // content.spaces()
+    document.querySelector('#content').style.opacity = 1
+  })
+
+  if (!mobile()) {
+    var path = production
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r45/Three.js'
+      // curl -O https://raw.githubusercontent.com/mrdoob/three.js/r45/build/Three.js
+      : '/Three.js'
+
+    loadScript(path, function () {
+      AttractorsTrip()
+      soundcloud()
+    })
+  }
+})
 
 function mobile () {
   return /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i
@@ -51,31 +74,6 @@ function loadScript (url, done) {
   script.src = url
   document.body.appendChild(script)
 }
-
-
-window.addEventListener('DOMContentLoaded', function () {
-  file('https://outofindex.com/simov/', function (err, body) {
-    document.querySelector('#content').innerHTML = body
-    content.links()
-    content.icons()
-    // content.tooltips()
-    // content.spaces()
-    document.querySelector('#content').style.opacity = 1
-  })
-
-  if (!mobile()) {
-    var path = production
-      ? 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r45/Three.js'
-      // curl -O https://raw.githubusercontent.com/mrdoob/three.js/r45/build/Three.js
-      : '/Three.js'
-
-    loadScript(path, function () {
-      AttractorsTrip()
-      soundcloud()
-    })
-  }
-})
-
 
 var content = {
   links: function () {

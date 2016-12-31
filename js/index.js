@@ -10,8 +10,10 @@ window.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#content').innerHTML = body
     content.links()
     content.icons()
-    content.tooltips()
-    // content.spaces()
+    content.spaces()
+    if (!mobile()) {
+      content.tooltips()
+    }
     document.querySelector('#content').style.opacity = 1
   })
 
@@ -158,12 +160,14 @@ var content = {
     }
   },
   spaces: function () {
-    $('.line .spaces').each(function (index) {
-      var text = $(this).text()
-      var count = text.match(/^(\s*)/g)[0].length
-      var indent = mobile() ? 2 : 8
-      $(this).text('').parent().css({'padding-left': count*indent})
-    })
+    Array.from(document.querySelectorAll('.line .spaces'))
+      .forEach(function (line) {
+        var text = line.innerText
+        var count = text.match(/^(\s*)/g)[0].length
+        var indent = mobile() ? 2 : 8
+        line.innerText = ''
+        line.parentNode.style.paddingLeft = (count * indent) + 'px'
+      })
   },
 }
 

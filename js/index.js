@@ -158,10 +158,12 @@ function soundcloud () {
 
   btn.addEventListener('mouseover', function () {
     iframe.style.opacity = 1
+    iframe.style.visibility = 'visible'
   })
 
   iframe.addEventListener('mouseout', function () {
     iframe.style.opacity = 0
+    iframe.style.visibility = 'hidden'
   })
 
   iframe.src = 'https://w.soundcloud.com/player/?' + [

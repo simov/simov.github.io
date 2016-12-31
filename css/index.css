@@ -31,20 +31,19 @@ i { font-style: normal; }
   opacity: 0; transition: 5s ease all;
 }
 
-#soundcloud {
-  position: absolute; top: 0; left: 0; z-index: 3;
-  opacity: 0; transition: .2s ease all;
-}
-
 #header {
-  position: fixed; top: 0; left: 0; z-index: 4;
+  position: fixed; top: 0; left: 0; z-index: 3;
   width: 100%;
   text-align: right;
 }
-
 #header .icon-soundcloud {
   opacity: 0; transition: .2s ease all;
   margin-right: 20px;
+}
+
+#soundcloud {
+  position: absolute; top: 0; left: 0; z-index: 4;
+  opacity: 0; visibility: hidden; transition: .2s ease all;
 }
 
 

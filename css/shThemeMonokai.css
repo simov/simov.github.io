@@ -1,3 +1,4 @@
+
 /* background */
 .syntaxhighlighter {
   background-color: #272822 !important;
@@ -219,7 +220,7 @@
 .js-keyword-operator {
   color: #F92672 !important;
 }
-.js-true, 
+.js-true,
 .js-false,
 .js-null,
 .js-language-constant {
@@ -253,23 +254,23 @@
 
 /* punctuation */
 .js-terminator,
-.js-comma, 
-.js-period, 
-.js-brace-curly, 
-.js-brace-round, 
+.js-comma,
+.js-period,
+.js-brace-curly,
+.js-brace-round,
 .js-brace-square {
   color: #F8F8F2 !important;
 }
 
 /* match blocks */
 .js-prototype1,
-.js-prototype2, 
-.js-function1, 
-.js-function2, 
-.js-function3, 
-.js-function4, 
-.js-json-function1, 
-.js-json-function2, 
+.js-prototype2,
+.js-function1,
+.js-function2,
+.js-function3,
+.js-function4,
+.js-json-function1,
+.js-json-function2,
 .js-instance-constructor {
   color: #F8F8F2 !important;
 }

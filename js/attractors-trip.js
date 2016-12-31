@@ -1,10 +1,10 @@
+
 /*
  * AUTHOR: Iacopo Sassarini
  * URL: http://www.chromeexperiments.com/detail/webgl-attractors-trip/
  */
 
-(function AttractorsTripNamespace () {
-if (!webgl) return;
+function AttractorsTrip () {
 
 
 var VISUALS_VISIBLE = true;
@@ -53,12 +53,12 @@ for (var i = 0; i < NUM_SUBSETS; i++){
   for (var j = 0; j < NUM_POINTS_SUBSET; j++){
     subsetPoints[j] = {
       x: 0,
-      y: 0, 
+      y: 0,
       vertex:  new THREE.Vertex(new THREE.Vector3(0,0,0))
     };
   }
   orbit.subsets.push(subsetPoints);
-}     
+}
 
 var container, stats;
 var camera, scene, renderer, composer, hueValues = [];
@@ -79,6 +79,7 @@ function init() {
   sprite1 = THREE.ImageUtils.loadTexture( "images/galaxy.png" );
 
   container = document.createElement( 'div' );
+  container.id = 'webgl'
   document.body.appendChild( container );
 
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 3 * SCALE_FACTOR );
@@ -88,9 +89,9 @@ function init() {
   scene.fog = new THREE.FogExp2( 0x000000, 0.0011);
 
   generateOrbit();
-  
+
   for (var s = 0; s < NUM_SUBSETS; s++){hueValues[s] = Math.random();}
-  
+
   // Create particle systems
   for (var k = 0; k < NUM_LEVELS; k++){
     for (var s = 0; s < NUM_SUBSETS; s++){
@@ -116,19 +117,13 @@ function init() {
 
   container.appendChild( renderer.domElement );
 
-  // stats = new Stats();
-  // stats.domElement.style.position = 'absolute';
-  // stats.domElement.style.top = '5px';
-  // stats.domElement.style.right = '5px';
-  // container.appendChild( stats.domElement );
-  
   // Setup listeners
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'touchstart', onDocumentTouchStart, false );
   document.addEventListener( 'touchmove', onDocumentTouchMove, false );
   document.addEventListener( 'keydown', onKeyDown, false );
   window.addEventListener( 'resize', onWindowResize, false );
-  
+
   // Schedule orbit refeneration
   setInterval(updateOrbit, 7000);
 }
@@ -140,7 +135,7 @@ function animate() {
 }
 
 function render() {
-        
+
   if (camera.position.x >= - CAMERA_BOUND && camera.position.x <= CAMERA_BOUND){
     camera.position.x += ( mouseX - camera.position.x ) * 0.05;
     if (camera.position.x < - CAMERA_BOUND) camera.position.x = -CAMERA_BOUND;
@@ -151,28 +146,28 @@ function render() {
     if (camera.position.y < - CAMERA_BOUND) camera.position.y = -CAMERA_BOUND;
     if (camera.position.y >  CAMERA_BOUND) camera.position.y = CAMERA_BOUND;
   }
-  
+
   camera.lookAt( scene.position );
-  
+
   for( i = 0; i < scene.objects.length; i++ ) {
     scene.objects[i].position.z +=  speed;
     scene.objects[i].rotation.z += rotationSpeed;
     if (scene.objects[i].position.z > camera.position.z){
       scene.objects[i].position.z = - (NUM_LEVELS -1) * LEVEL_DEPTH;
       if (scene.objects[i].needsUpdate == 1){
-        scene.objects[i].geometry.__dirtyVertices = true; 
+        scene.objects[i].geometry.__dirtyVertices = true;
         scene.objects[i].myMaterial.color.setHSV( hueValues[scene.objects[i].mySubset], DEF_SATURATION, DEF_BRIGHTNESS);
         scene.objects[i].needsUpdate = 0;
       }
     }
   }
-  
+
   renderer.render( scene, camera );
 }
 
 ///////////////////////////////////////////////
 // Hopalong Orbit Generator
-///////////////////////////////////////////////     
+///////////////////////////////////////////////
 function updateOrbit(){
   generateOrbit();
   for (var s = 0; s < NUM_SUBSETS; s++){
@@ -189,7 +184,7 @@ function generateOrbit(){
   var idx = 0;
 
   prepareOrbit();
-  
+
   // Using local vars should be faster
   var al = a;
   var bl = b;
@@ -200,55 +195,55 @@ function generateOrbit(){
   var num_points_subset_l = NUM_POINTS_SUBSET;
   var num_points_l = NUM_POINTS;
   var scale_factor_l = SCALE_FACTOR;
-  
+
   var xMin = 0, xMax = 0, yMin = 0, yMax = 0;
 
   for (var s = 0; s < NUM_SUBSETS; s++){
-  
+
     // Use a different starting point for each orbit subset
     x = s * .005 * (0.5-Math.random());
     y = s * .005 * (0.5-Math.random());
-    
+
     var curSubset = subsets[s];
-    
+
     for (var i = 0; i < num_points_subset_l; i++){
-    
+
       // Iteration formula (generalization of the Barry Martin's original one)
       z = (dl + Math.sqrt(Math.abs(bl * x - cl)));
       if (x > 0) {x1 = y - z;}
       else if (x == 0) {x1 = y;}
       else {x1 = y + z;}
       y = al - x;
-      x = x1 + el;    
+      x = x1 + el;
 
       curSubset[i].x = x;
       curSubset[i].y = y;
-      
+
       if (x < xMin) {xMin = x;}
       else if (x > xMax) {xMax = x;}
       if (y < yMin) {yMin = y;}
       else if (y > yMax) {yMax = y;}
-      
+
       idx++;
     }
   }
-          
+
   var scaleX = 2 * scale_factor_l / (xMax - xMin);
   var scaleY = 2 * scale_factor_l / (yMax - yMin);
-  
+
   orbit.xMin = xMin;
   orbit.xMax = xMax;
   orbit.yMin = yMin;
   orbit.yMax = yMax;
   orbit.scaleX = scaleX;
   orbit.scaleY = scaleY;
-  
-  // Normalize and update vertex data       
+
+  // Normalize and update vertex data
   for (var s = 0; s < NUM_SUBSETS; s++){
     var curSubset = subsets[s];
     for (var i = 0; i < num_points_subset_l; i++){
       curSubset[i].vertex.position.x = scaleX * (curSubset[i].x - xMin) - scale_factor_l;
-      curSubset[i].vertex.position.y = scaleY * (curSubset[i].y - yMin) - scale_factor_l;         
+      curSubset[i].vertex.position.y = scaleY * (curSubset[i].y - yMin) - scale_factor_l;
     }
   }
 }
@@ -299,7 +294,7 @@ function onWindowResize( event ) {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
-}       
+}
 
 function onKeyDown(event){
   if(event.keyCode == 38 && speed < 20) speed += .5;
@@ -310,4 +305,4 @@ function onKeyDown(event){
 }
 
 
-}()); // AttractorsTripNamespace
+}

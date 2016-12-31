@@ -17,7 +17,10 @@ i { font-style: normal; }
 
 /*containers*/
 
-#webgl { /*z-index: 1;*/ }
+#webgl {
+  z-index: 1;
+  opacity: 0; transition: 3s ease opacity;
+}
 
 #main {
   width: 100%; height: 100%;
@@ -28,7 +31,7 @@ i { font-style: normal; }
 
 #content {
   width: 820px; margin: 0 auto;
-  opacity: 0; transition: 5s ease all;
+  opacity: 0; transition: 5s ease opacity;
 }
 
 #header {
@@ -37,13 +40,13 @@ i { font-style: normal; }
   text-align: right;
 }
 #header .icon-soundcloud {
-  opacity: 0; transition: .2s ease all;
+  opacity: 0; transition: .2s ease opacity;
   margin-right: 20px;
 }
 
 #soundcloud {
   position: absolute; top: 0; left: 0; z-index: 4;
-  opacity: 0; visibility: hidden; transition: .2s ease all;
+  opacity: 0; visibility: hidden; transition: .2s ease opacity;
 }
 
 

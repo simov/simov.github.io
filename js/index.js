@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', function () {
     if (!mobile()) {
       content.tooltips()
     }
-    document.querySelector('#content').style.opacity = 1
   })
 
   if (!mobile()) {
@@ -26,7 +25,16 @@ window.addEventListener('DOMContentLoaded', function () {
     loadScript(path, function () {
       AttractorsTrip()
       soundcloud()
+      setTimeout(function () {
+        document.querySelector('#webgl').style.opacity = 1
+        setTimeout(function () {
+          document.querySelector('#content').style.opacity = 1
+        }, 1000)
+      }, 1000)
     })
+  }
+  else {
+    document.querySelector('#content').style.opacity = 1
   }
 })
 

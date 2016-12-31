@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#content').innerHTML = body
     content.links()
     content.icons()
-    // content.tooltips()
+    content.tooltips()
     // content.spaces()
     document.querySelector('#content').style.opacity = 1
   })
@@ -117,24 +117,45 @@ var content = {
         }
       })
   },
-  linkTooltips: function () {
-    // .bt-content { font-size: 12px; line-height: 14px; }
-    $('#content .syntaxhighlighter a').bt({
-      positions: ['top', 'most'],
-      padding: 10,
-      width: 'auto',
-      spikeLength: 5,
-      fill: 'rgba(85, 85, 85)',
-      strokeStyle: '#a6e22e',
-      cssStyles: {color: '#a6e22e', 'white-space': 'nowrap', 'font-size': 16},
-      hoverIntentOpts: {timeout: 0},
-      showTip: function (box) {
-        $(box).fadeIn(200)
-      },
-      hideTip: function (box, callback) {
-        $(box).animate({opacity: 0}, 200, callback)
-      }
+  tooltips: function () {
+    var links = Array.from(document.querySelectorAll('.syntaxhighlighter a'))
+
+    links.forEach(function (link) {
+      link.addEventListener('mouseover', function () {
+        var tooltip = link.parentNode.querySelector('.tooltip')
+        if (!tooltip) {
+          var url = link.getAttribute('title')
+          link.removeAttribute('title')
+          link.parentNode.style.position = 'relative'
+          link.parentNode.appendChild(create(url))
+          tooltip = link.parentNode.querySelector('.tooltip')
+          position(link, tooltip)
+        }
+        tooltip = link.parentNode.querySelector('.tooltip')
+        tooltip.style.opacity = 1
+        tooltip.style.visibility = 'visible'
+      })
+
+      link.addEventListener('mouseout', function () {
+        var tooltip = link.parentNode.querySelector('.tooltip')
+        tooltip.style.opacity = 0
+        tooltip.style.visibility = 'hidden'
+      })
     })
+
+    function create (url) {
+      var elem = document.createElement('div')
+      elem.className = 'tooltip'
+      elem.innerText = url
+      return elem
+    }
+
+    function position (link, tooltip) {
+      var padding = parseInt(window.getComputedStyle(tooltip)
+        .getPropertyValue('padding-left').replace('px', ''))
+      tooltip.style.left = - (
+        (tooltip.offsetWidth / 2) - padding - (link.offsetWidth / 2)) + 'px'
+    }
   },
   spaces: function () {
     $('.line .spaces').each(function (index) {

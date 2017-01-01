@@ -74,27 +74,25 @@ i { font-style: normal; }
 
 /*custom scrollbars in WebKit*/
 
-@media only screen and (min-width : 820px) {
-  ::-webkit-scrollbar {
-    width: 13px;
-  }
-  ::-webkit-scrollbar-track-piece {
-    background: #333;
-    -webkit-border-radius: 2px;
-  }
-  ::-webkit-scrollbar-thumb {
-    height: 50px;
-    background: #bbb;
-    -webkit-border-radius: 8px;
-    outline: 2px solid #333;
-    outline-offset: -2px;
-    border: 2px solid #333;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    height: 50px;
-    background-color: #ddd;
-    -webkit-border-radius: 8px;
-  }
+::-webkit-scrollbar {
+  width: 13px;
+}
+::-webkit-scrollbar-track-piece {
+  background: #333;
+  -webkit-border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background: #bbb;
+  -webkit-border-radius: 8px;
+  outline: 2px solid #333;
+  outline-offset: -2px;
+  border: 2px solid #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background-color: #ddd;
+  -webkit-border-radius: 8px;
 }
 
 
@@ -135,10 +133,10 @@ i { font-style: normal; }
 
 /*mobile*/
 
-@media only screen and (max-width: 820px) {
-  html, body { width: auto; height: auto; overflow: auto; }
-  #soundcloud, #header, #footer, canvas { display: none; }
-  #content { opacity: 1; width: auto; position: static; margin: 0; }
-  #main { width: auto; height: auto; position: static; top: auto; left: auto; }
-  .syntaxhighlighter, .code, .container { width: auto !important; }
+@media only screen and (max-width: 830px) {
+  #main { width: auto; }
+  #content { width: auto; margin: 0; }
+  .syntaxhighlighter, .code, .container {
+    width: auto !important; overflow: hidden;
+  }
 }

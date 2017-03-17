@@ -112,7 +112,7 @@ var content = {
     Array.from(document.querySelectorAll('.line .plain'))
       .forEach(function (elem) {
         var text = elem.innerText
-        var match = text.match(/^>\+\d+ ~\d+<\/$/)
+        var match = text.match(/^>\+[\d,]+ ~[\d,]+<\/$/)
 
         if (match) {
           elem.innerHTML = text
@@ -120,7 +120,7 @@ var content = {
             .replace('~', '<i class="icon-fork"></i>')
         }
 
-        match = text.match(/^>\*\d+<\/$/)
+        match = text.match(/^>\*[\d,]+<\/$/)
 
         if (match) {
           elem.innerHTML = text.replace('*', '<i class="icon-user"></i>')

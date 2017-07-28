@@ -6,7 +6,7 @@ if (window.location.protocol === 'http:') {
 var production = true
 
 window.addEventListener('DOMContentLoaded', function () {
-  file('https://outofindex.com/simov/', function (err, body) {
+  file('https://outofindex.com/simov/io.html', function (err, body) {
     document.querySelector('#content').innerHTML = body
     content.links()
     content.icons()

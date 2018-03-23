@@ -1,12 +1,10 @@
 
-if (window.location.protocol === 'http:') {
-  window.location.href = 'https://simov.github.io'
+if (location.protocol === 'http:' && location.hostname === 'simov.github.io') {
+  location.href = 'https://simov.github.io'
 }
 
-var production = true
-
 window.addEventListener('DOMContentLoaded', function () {
-  file('https://outofindex.com/simov/io.html', function (err, body) {
+  file(config.content, function (err, body) {
     document.querySelector('#content').innerHTML = body
     content.links()
     content.icons()
@@ -17,12 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
   })
 
   if (!mobile()) {
-    var path = production
-      ? 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r45/Three.js'
-      // curl -O https://raw.githubusercontent.com/mrdoob/three.js/r45/build/Three.js
-      : '/Three.js'
-
-    loadScript(path, function () {
+    loadScript(config.threejs, function () {
       AttractorsTrip()
       soundcloud()
       setTimeout(function () {

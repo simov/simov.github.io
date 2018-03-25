@@ -4,7 +4,7 @@ if (location.protocol === 'http:' && location.hostname === 'simov.github.io') {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-  file(config.content, function (err, body) {
+  file(config.origin + '/simov/io.html', function (err, body) {
     document.querySelector('#content').innerHTML = body
     content.links()
     content.icons()
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
   })
 
   if (!mobile()) {
-    loadScript(config.threejs, function () {
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r45/Three.js', function () {
       AttractorsTrip()
       soundcloud()
       setTimeout(function () {

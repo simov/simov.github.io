@@ -178,8 +178,6 @@ function soundcloud () {
 
   iframe.addEventListener('load', function () {
     btn.style.opacity = 1
-    iframe.style.visibility = 'hidden'
-    body.focus()
   })
 
   btn.addEventListener('mouseover', function () {
